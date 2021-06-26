@@ -2,6 +2,8 @@ const axios = require('axios')
 const express = require('express');
 const app = express();
 
+const port  = process.env.PORT || 3000
+
 app.get('/coins/:name', async (req, res) => {
     try{
         const {data} = await axios('https://api.coingecko.com/api/v3/search?locale=en');
@@ -14,4 +16,4 @@ app.get('/coins/:name', async (req, res) => {
 });
 
 
-app.listen(3000, () => console.log('live on 3000'))
+app.listen(port, () => console.log('live on 3000'))
